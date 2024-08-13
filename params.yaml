@@ -1,0 +1,6 @@
+input: reads
+output: results
+archive: true
+fastp: true
+db: k2db
+threshold: 200
