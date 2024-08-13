@@ -9,32 +9,26 @@ workflow  {
         archive_ch = Channel.fromPath("$params.input/*.tar.bz2")
                     .map{it -> [ [id: it.baseName.tokenize(".")[0], single_end: false], it ] }
         UNTAR(archive_ch)
-        reads_ch = UNTAR.out.groupTuple()              
+        reads_ch = UNTAR.out       
     } else {
         reads_ch = Channel.fromFilePairs("$params.input/*{1,2}.{fq,fastq}.gz")
                           .map{ it -> [ [id: it.baseName.tokenize(".")[0], single_end: false], it ] }
     }
-    if params.fastp {
+    if (params.fastp) {
         FASTP(reads_ch, [], false, false)
-        kraken2_ch = FASTP.out
+        kraken2_ch = FASTP.out.reads
     } else {
         kraken2_ch = reads_ch
     }
 
-    KRAKEN2()
-    
-    
-
-    
-
-    
+    KRAKEN2(kraken2_ch, params.db)
 }
 
 
 process UNTAR {
   tag "$meta.id"
   
-  publishDir params.outdir
+  publishDir "$params.output/fastq", mode: 'copy'
   
   container 'quay.io/biocontainers/pigz:2.8'
   
@@ -44,7 +38,7 @@ process UNTAR {
   tuple val(meta), path(tar)
   
   output:
-  tuple val(meta), path("${meta.id}/*.fastq.gz")
+  tuple val(meta), path("$meta.id/*.{1,2}.fastq.gz")
   
   script:
   """
@@ -57,7 +51,7 @@ process UNTAR {
 process FASTP {
     tag "$meta.id"
 
-    publishDir "fastp", mode: 'copy'
+    publishDir "$params.output/fastp", mode: 'copy'
     
     cpus 8
 
@@ -182,11 +176,11 @@ process FASTP {
 process KRAKEN2 {
   tag "$meta.id"
   
-  publishDir "$params.outdir", mode: 'copy'
+  publishDir "$params.output/kraken2", mode: 'copy'
 
   container 'https://depot.galaxyproject.org/singularity/mulled-v2-5799ab18b5fc681e75923b2450abaa969907ec98:87fc08d11968d081f3e8a37131c1f1f6715b6542-0'
   
-  cpus 20
+  cpus 16
 
   input:
   tuple val(meta), path(reads)
