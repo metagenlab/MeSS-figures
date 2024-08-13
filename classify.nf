@@ -8,8 +8,8 @@ workflow  {
     if (params.archive) {
         archive_ch = Channel.fromPath("$params.input/*.tar.bz2")
                     .map{it -> [ [id: it.baseName.tokenize(".")[0], single_end: false], it ] }
-        UNTAR(archive_ch)
-        reads_ch = UNTAR.out       
+        EXTRACT_ARCHIVE(archive_ch)
+        reads_ch = EXTRACT_ARCHIVE.out       
     } else {
         reads_ch = Channel.fromFilePairs("$params.input/*{1,2}.{fq,fastq}.gz")
                           .map{ it -> [ [id: it.baseName.tokenize(".")[0], single_end: false], it ] }
@@ -22,15 +22,17 @@ workflow  {
     }
 
     KRAKEN2(kraken2_ch, params.db)
+    BRACKEN(KRAKEN2.out, params.db)
+    FILTER_BRACKEN(BRACKEN.out, params.threshold)
 }
 
 
-process UNTAR {
+process EXTRACT_ARCHIVE {
   tag "$meta.id"
   
   publishDir "$params.output/fastq", mode: 'copy'
   
-  container 'quay.io/biocontainers/pigz:2.8'
+  container 'https://depot.galaxyproject.org/singularity/pigz:2.8'
   
   cpus 5
   
@@ -47,7 +49,7 @@ process UNTAR {
   """
 }
 
-
+// copied from nf-core
 process FASTP {
     tag "$meta.id"
 
@@ -199,5 +201,59 @@ process KRAKEN2 {
     --gzip-compressed \\
     --paired \\
     $reads
+  """
+}
+
+
+process BRACKEN {
+  tag "$meta.id"
+  
+  publishDir "$params.output/bracken", mode: 'copy'
+
+  container 'https://depot.galaxyproject.org/singularity/bracken:2.9--py312h28adbb1_1'
+  
+  cpus 1
+
+  input:
+  tuple val(meta), path(report)
+  path db
+  
+  output:
+  tuple val(meta), path('*.bracken')
+  
+  script:
+  def prefix = "$meta.id"
+  """
+  bracken \\
+    -d $db \\
+    -i $report \\
+    -o ${prefix}.bracken 
+  """
+}
+
+
+process FILTER_BRACKEN {
+  tag "$meta.id"
+  
+  publishDir "$params.output/abundances", mode: 'copy'
+
+  container 'quay.io/biocontainers/pandas:2.2.1'
+  
+  cpus 1
+
+  input:
+  tuple val(meta), path(report)
+  val(threshold)
+  
+  output:
+  tuple val(meta), path('*.tsv')
+  
+  script:
+  def prefix = "$meta.id"
+  """
+  filter_bracken.py \\
+    $threshold \\
+    $report \\
+    ${prefix}.tsv
   """
 }
