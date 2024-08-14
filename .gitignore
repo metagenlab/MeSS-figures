@@ -1,1 +1,9 @@
 .ipynb_checkpoints/
+k2db/
+*.tar.gz
+reads/
+portal_client/
+results/
+.nextflow*
+work/
+containers/
