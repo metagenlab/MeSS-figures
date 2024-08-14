@@ -20,9 +20,9 @@ workflow  {
     } else {
         kraken2_ch = reads_ch
     }
-
-    KRAKEN2(kraken2_ch, params.db)
-    BRACKEN(KRAKEN2.out, params.db)
+    db_ch = Channel.fromPath(params.db)
+    KRAKEN2(kraken2_ch, db_ch)
+    BRACKEN(KRAKEN2.out, db_ch)
     FILTER_BRACKEN(BRACKEN.out, params.threshold)
 }
 
