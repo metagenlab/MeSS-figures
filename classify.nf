@@ -20,9 +20,8 @@ workflow  {
     } else {
         kraken2_ch = reads_ch
     }
-    db_ch = Channel.fromPath(params.db)
-    KRAKEN2(kraken2_ch, db_ch)
-    BRACKEN(KRAKEN2.out, db_ch)
+    KRAKEN2(kraken2_ch, params.db)
+    BRACKEN(KRAKEN2.out, params.db)
     FILTER_BRACKEN(BRACKEN.out, params.threshold)
 }
 
@@ -34,7 +33,7 @@ process EXTRACT_ARCHIVE {
   
   container 'https://depot.galaxyproject.org/singularity/pigz:2.8'
   
-  cpus 5
+  cpus 4
   
   input:
   tuple val(meta), path(tar)
@@ -57,9 +56,8 @@ process FASTP {
     
     cpus 8
 
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/fastp:0.23.4--h5f740d0_0' :
-        'biocontainers/fastp:0.23.4--h5f740d0_0' }"
+    container "https://depot.galaxyproject.org/singularity/fastp:0.23.4--h5f740d0_0"
+  
 
     input:
     tuple val(meta), path(reads)
@@ -237,7 +235,7 @@ process FILTER_BRACKEN {
   
   publishDir "$params.output/abundances", mode: 'copy'
 
-  container 'quay.io/biocontainers/pandas:2.2.1'
+  container 'docker://quay.io/biocontainers/pandas:2.2.1'
   
   cpus 1
 
