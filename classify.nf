@@ -3,7 +3,6 @@
 nextflow.enable.dsl = 2
 
 
-
 workflow  {
     if (params.archive) {
         archive_ch = Channel.fromPath("$params.input/*.tar.bz2")
@@ -28,12 +27,12 @@ workflow  {
 
 process EXTRACT_ARCHIVE {
   tag "$meta.id"
+
+  label 'process_low'
   
   publishDir "$params.output/fastq", mode: 'copy'
   
   container 'https://depot.galaxyproject.org/singularity/pigz:2.8'
-  
-  cpus 4
   
   input:
   tuple val(meta), path(tar)
@@ -52,6 +51,8 @@ process EXTRACT_ARCHIVE {
 process FASTP {
     tag "$meta.id"
 
+    label 'process_medium'
+    
     publishDir "$params.output/fastp", mode: 'copy'
     
     cpus 8
@@ -175,13 +176,13 @@ process FASTP {
 
 process KRAKEN2 {
   tag "$meta.id"
+
+  label 'process_high'
   
   publishDir "$params.output/kraken2", mode: 'copy'
 
   container 'https://depot.galaxyproject.org/singularity/mulled-v2-5799ab18b5fc681e75923b2450abaa969907ec98:87fc08d11968d081f3e8a37131c1f1f6715b6542-0'
   
-  cpus 16
-
   input:
   tuple val(meta), path(reads)
   path db
@@ -206,12 +207,12 @@ process KRAKEN2 {
 process BRACKEN {
   tag "$meta.id"
   
+  label 'process_low'
+  
   publishDir "$params.output/bracken", mode: 'copy'
 
   container 'https://depot.galaxyproject.org/singularity/bracken:2.9--py312h28adbb1_1'
   
-  cpus 1
-
   input:
   tuple val(meta), path(report)
   path db
@@ -232,12 +233,12 @@ process BRACKEN {
 
 process FILTER_BRACKEN {
   tag "$meta.id"
+
+  label 'process_single'
   
   publishDir "$params.output/abundances", mode: 'copy'
 
   container 'docker://quay.io/biocontainers/pandas:2.2.1'
-  
-  cpus 1
 
   input:
   tuple val(meta), path(report)
