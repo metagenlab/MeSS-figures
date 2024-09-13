@@ -10,8 +10,8 @@ workflow  {
         EXTRACT_ARCHIVE(archive_ch)
         reads_ch = EXTRACT_ARCHIVE.out       
     } else {
-        reads_ch = Channel.fromFilePairs("$params.input/*{1,2}.{fq,fastq}.gz")
-                          .map{ it -> [ [id: it.baseName.tokenize(".")[0], single_end: false], it ] }
+        reads_ch = Channel.fromFilePairs("$params.input/*${params.ext}.{fq,fastq}.gz")
+                          .map{ it -> [ [id: it[0], single_end: false], it[1] ] }
     }
     if (params.fastp) {
         FASTP(reads_ch, [], false, false)
@@ -253,6 +253,6 @@ process FILTER_BRACKEN {
   filter_bracken.py \\
     $threshold \\
     $report \\
-    ${prefix}.tsv
+    ${prefix}
   """
 }
