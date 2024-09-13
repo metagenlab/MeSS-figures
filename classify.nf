@@ -253,6 +253,6 @@ process FILTER_BRACKEN {
   filter_bracken.py \\
     $threshold \\
     $report \\
-    ${prefix}.tsv
+    ${prefix}
   """
 }
