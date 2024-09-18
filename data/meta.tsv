@@ -1,0 +1,81 @@
+file	sample	origin	body_site	simulated
+SRS013506	SRS013506	gold_standard	buccal mucosa	False
+SRS050029	SRS050029	gold_standard	buccal mucosa	False
+SRS1041031	SRS1041031	gold_standard	feces	False
+SRS014689	SRS014689	gold_standard	throat	False
+SRS065335	SRS065335	gold_standard	throat	False
+SRS104912	SRS104912	gold_standard	feces	False
+SRS054569	SRS054569	gold_standard	buccal mucosa	False
+SRS146847	SRS146847	gold_standard	vagina	False
+SRS142957	SRS142957	gold_standard	vagina	False
+SRS105082	SRS105082	gold_standard	feces	False
+SRS147088	SRS147088	gold_standard	feces	False
+SRS144378	SRS144378	gold_standard	throat	False
+SRS098585	SRS098585	gold_standard	vagina	False
+SRS143776	SRS143776	gold_standard	vagina	False
+SRS143032	SRS143032	gold_standard	throat	False
+SRS1041129	SRS1041129	gold_standard	feces	False
+SRS019352	SRS019352	gold_standard	buccal mucosa	False
+SRS097885	SRS097885	gold_standard	vagina	False
+SRS056042	SRS056042	gold_standard	buccal mucosa	False
+SRS014475	SRS014475	gold_standard	throat	False
+mess_SRS097885_filtered	SRS097885	mess	vagina	True
+camisim_SRS097885_filtered	SRS097885	camisim	vagina	True
+camisim_SRS146847_filtered	SRS146847	camisim	vagina	True
+mess_SRS146847_filtered	SRS146847	mess	vagina	True
+mess_SRS098585_filtered	SRS098585	mess	vagina	True
+camisim_SRS098585_filtered	SRS098585	camisim	vagina	True
+mess_SRS014475_filtered	SRS014475	mess	throat	True
+camisim_SRS014475_filtered	SRS014475	camisim	throat	True
+mess_SRS065335_filtered	SRS065335	mess	throat	True
+camisim_SRS065335_filtered	SRS065335	camisim	throat	True
+camisim_SRS013506_filtered	SRS013506	camisim	buccal mucosa	True
+mess_SRS013506_filtered	SRS013506	mess	buccal mucosa	True
+camisim_SRS142957_filtered	SRS142957	camisim	vagina	True
+mess_SRS142957_filtered	SRS142957	mess	vagina	True
+mess_SRS105082_filtered	SRS105082	mess	feces	True
+camisim_SRS105082_filtered	SRS105082	camisim	feces	True
+camisim_SRS054569_filtered	SRS054569	camisim	buccal mucosa	True
+mess_SRS054569_filtered	SRS054569	mess	buccal mucosa	True
+mess_SRS014689_filtered	SRS014689	mess	throat	True
+camisim_SRS014689_filtered	SRS014689	camisim	throat	True
+mess_SRS1041129_filtered	SRS1041129	mess	feces	True
+camisim_SRS1041129_filtered	SRS1041129	camisim	feces	True
+mess_SRS056042_filtered	SRS056042	mess	buccal mucosa	True
+camisim_SRS056042_filtered	SRS056042	camisim	buccal mucosa	True
+camisim_SRS144378_filtered	SRS144378	camisim	throat	True
+mess_SRS144378_filtered	SRS144378	mess	throat	True
+camisim_SRS019352_filtered	SRS019352	camisim	buccal mucosa	True
+mess_SRS019352_filtered	SRS019352	mess	buccal mucosa	True
+camisim_SRS104912_filtered	SRS104912	camisim	feces	True
+mess_SRS104912_filtered	SRS104912	mess	feces	True
+camisim_SRS147088_filtered	SRS147088	camisim	feces	True
+mess_SRS147088_filtered	SRS147088	mess	feces	True
+camisim_SRS050029_filtered	SRS050029	camisim	buccal mucosa	True
+mess_SRS050029_filtered	SRS050029	mess	buccal mucosa	True
+mess_SRS1041031_filtered	SRS1041031	mess	feces	True
+camisim_SRS1041031_filtered	SRS1041031	camisim	feces	True
+camisim_SRS143776_filtered	SRS143776	camisim	vagina	True
+mess_SRS143776_filtered	SRS143776	mess	vagina	True
+camisim_SRS143032_filtered	SRS143032	camisim	throat	True
+mess_SRS143032_filtered	SRS143032	mess	throat	True
+SRS013506_filtered	SRS013506	gs_filtered	buccal mucosa	False
+SRS050029_filtered	SRS050029	gs_filtered	buccal mucosa	False
+SRS1041031_filtered	SRS1041031	gs_filtered	feces	False
+SRS014689_filtered	SRS014689	gs_filtered	throat	False
+SRS065335_filtered	SRS065335	gs_filtered	throat	False
+SRS104912_filtered	SRS104912	gs_filtered	feces	False
+SRS054569_filtered	SRS054569	gs_filtered	buccal mucosa	False
+SRS146847_filtered	SRS146847	gs_filtered	vagina	False
+SRS142957_filtered	SRS142957	gs_filtered	vagina	False
+SRS105082_filtered	SRS105082	gs_filtered	feces	False
+SRS147088_filtered	SRS147088	gs_filtered	feces	False
+SRS144378_filtered	SRS144378	gs_filtered	throat	False
+SRS098585_filtered	SRS098585	gs_filtered	vagina	False
+SRS143776_filtered	SRS143776	gs_filtered	vagina	False
+SRS143032_filtered	SRS143032	gs_filtered	throat	False
+SRS1041129_filtered	SRS1041129	gs_filtered	feces	False
+SRS019352_filtered	SRS019352	gs_filtered	buccal mucosa	False
+SRS097885_filtered	SRS097885	gs_filtered	vagina	False
+SRS056042_filtered	SRS056042	gs_filtered	buccal mucosa	False
+SRS014475_filtered	SRS014475	gs_filtered	throat	False
