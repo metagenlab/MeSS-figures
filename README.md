@@ -37,6 +37,14 @@ jupyter lab
 
 ### Supplementary figures
 
-#### Alpha diversities
+#### Figure S1
 
-![sup1](figures/alpha-divs.png)
+![figs1](figures/alpha-divs.png)
+
+#### Figure S2
+
+![figs2](figures/cpu-time.png)
+
+#### Figure S3
+
+![figs2](figures/ram-usage.png)
