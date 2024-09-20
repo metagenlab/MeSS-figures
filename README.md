@@ -26,20 +26,24 @@ jupyter lab
 
 ## Figures
 
-### Figure 1
-#### A)
+### Diversities
+Use `microviz.ipynb` to generate the figures below
+
+#### Figure 1A
 
 ![fig1a](figures/species-jaccard-NMDS.png)
 
-#### B)
+#### Figure 1B
 
 ![fig1b](figures/species-bray-NMDS.png)
-
-### Supplementary figures
 
 #### Figure S1
 
 ![figs1](figures/alpha-divs.png)
+
+### Benchmark
+
+Use `benchmark.ipynb` to generate the figures below
 
 #### Figure S2
 
@@ -47,4 +51,4 @@ jupyter lab
 
 #### Figure S3
 
-![figs2](figures/ram-usage.png)
+![figs3](figures/ram-usage.png)
