@@ -6,7 +6,7 @@ import glob
 import os
 
 if len(sys.argv) != 2:
-    exit("Usage: concat_tables.py <dir> <metadata>")
+    exit("Usage: concat_tables.py <dir>")
 
 
 files = glob.glob(f"{sys.argv[1]}/*.tsv")
