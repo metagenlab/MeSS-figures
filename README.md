@@ -27,7 +27,7 @@ jupyter lab
 ## Figures
 
 ### Diversities
-Use `microviz.ipynb` to generate the figures below
+Use `3_plot_diversities.ipynb` to generate the figures below
 
 #### Figure 1A
 
@@ -43,7 +43,7 @@ Use `microviz.ipynb` to generate the figures below
 
 ### Benchmark
 
-Use `benchmark.ipynb` to generate the figures below
+Use `4_plot_resource_usage.ipynb` to generate the figures below
 
 #### Figure S2
 
