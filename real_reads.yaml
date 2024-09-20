@@ -1,5 +1,0 @@
-input: reads
-output: results
-archive: true
-fastp: true
-threshold: 200
