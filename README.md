@@ -23,3 +23,20 @@ mamba env create -n mess-notebook -f env.yaml
 mamba activate mess-notebook
 jupyter lab
 ```
+
+## Figures
+
+### Figure 1
+#### A)
+
+![fig1a](figures/species-jaccard-NMDS.png)
+
+#### B)
+
+![fig1b](figures/species-bray-NMDS.png)
+
+### Supplementary figures
+
+#### Alpha diversities
+
+![sup1](figures/alpha-divs.png)
