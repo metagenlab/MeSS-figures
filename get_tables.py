@@ -5,8 +5,8 @@ import pandas as pd
 import glob
 import os
 
-if len(sys.argv) != 2:
-    exit("Usage: concat_tables.py <dir>")
+if len(sys.argv) != 3:
+    exit("Usage: concat_tables.py <dir> <out>")
 
 
 files = glob.glob(f"{sys.argv[1]}/*.tsv")
@@ -25,5 +25,5 @@ index_drop = (
 
 df = dfs[~index_drop]
 mdf = pd.pivot_table(df, values="reads", columns="sample", index="taxon").reset_index().fillna(0)
-mdf.apply(lambda col: sorted(col, reverse=True), axis=0).to_csv("data/otus.tsv", sep="\t",index=False)
-mdf["taxon"].drop_duplicates().to_csv("data/uniq_taxids.tsv", sep="\t", header=False, index=False)
+mdf.apply(lambda col: sorted(col, reverse=True), axis=0).to_csv(f"{sys.argv[2]}/otus.tsv", sep="\t",index=False)
+mdf["taxon"].drop_duplicates().to_csv(f"{sys.argv[2]}/uniq_taxids.tsv", sep="\t", header=False, index=False)
