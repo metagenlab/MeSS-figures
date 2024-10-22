@@ -50,8 +50,8 @@ Use [`4_plot_resource_usage.ipynb`](4_plot_resource_usage.ipynb) to generate the
 
 #### Figure S2
 
-<img src="figures/cpu-time.png" width=50% height=50%>
+<img src="figures/cpu-time.png" width=65% height=65%>
 
 #### Figure S3
 
-<img src="figures/ram-usage.png" width=50% height=50%>
+<img src="figures/ram-usage.png" width=65% height=65%>
