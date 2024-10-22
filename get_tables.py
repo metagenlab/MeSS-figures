@@ -24,6 +24,9 @@ index_drop = (
 ) | (dfs["sample"].str.contains("camisim") & ~dfs["sample"].str.contains("filtered"))
 
 df = dfs[~index_drop]
-mdf = pd.pivot_table(df, values="reads", columns="sample", index="taxon").reset_index().fillna(0)
-mdf.apply(lambda col: sorted(col, reverse=True), axis=0).to_csv(f"{sys.argv[2]}/otus.tsv", sep="\t",index=False)
-mdf["taxon"].drop_duplicates().to_csv(f"{sys.argv[2]}/uniq_taxids.tsv", sep="\t", header=False, index=False)
+mdf = pd.pivot_table(df, values="reads", columns="sample", index="taxon").fillna(0)
+mdf = mdf.sort_values(by=list(mdf.columns), ascending=False).reset_index().astype(int)
+mdf.to_csv(f"{sys.argv[2]}/otus.tsv", sep="\t", index=False)
+mdf["taxon"].drop_duplicates().to_csv(
+    f"{sys.argv[2]}/uniq_taxids.tsv", sep="\t", header=False, index=False
+)
