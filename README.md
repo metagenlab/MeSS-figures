@@ -34,15 +34,15 @@ Use [`3_plot_diversities.ipynb`](3_plot_diversities.ipynb) to generate the figur
 
 #### Figure 1A
 
-<img src="figures/species-jaccard-NMDS.png" width=50% height=50%>
+<img src="figures/species-jaccard-NMDS.png" width=55% height=55%>
 
 #### Figure 1B
 
-<img src="figures/species-bray-NMDS.png" width=50% height=50%>
+<img src="figures/species-bray-NMDS.png" width=55% height=55%>
 
 #### Figure S1
 
-<img src="figures/alpha-divs.png" width=50% height=50%>
+<img src="figures/alpha-divs.png" width=55% height=55%>
 
 ### Benchmark
 
@@ -50,8 +50,8 @@ Use [`4_plot_resource_usage.ipynb`](4_plot_resource_usage.ipynb) to generate the
 
 #### Figure S2
 
-<img src="figures/cpu-time.png" width=65% height=65%>
+<img src="figures/cpu-time.png" width=80% height=80%>
 
 #### Figure S3
 
-<img src="figures/ram-usage.png" width=65% height=65%>
+<img src="figures/ram-usage.png" width=80% height=80%>
