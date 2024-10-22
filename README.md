@@ -1,9 +1,11 @@
 # MeSS-figures
+
 Supplemental code for reproducing MeSS paper figures
 
 ## Dependencies
 
 ### Install mamba
+
 You need mamba to install jupyer notebooks dependencies:
 
 ```sh
@@ -27,28 +29,29 @@ jupyter lab
 ## Figures
 
 ### Diversities
-Use `3_plot_diversities.ipynb` to generate the figures below
+
+Use [`3_plot_diversities.ipynb`](3_plot_diversities.ipynb) to generate the figures below
 
 #### Figure 1A
 
-![fig1a](figures/species-jaccard-NMDS.png)
+<img src="figures/species-jaccard-NMDS.png" width=65% height=65%>
 
 #### Figure 1B
 
-![fig1b](figures/species-bray-NMDS.png)
+<img src="figures/species-bray-NMDS.png" width=65% height=65%>
 
 #### Figure S1
 
-![figs1](figures/alpha-divs.png)
+<img src="figures/alpha-divs.png" width=65% height=65%>
 
 ### Benchmark
 
-Use `4_plot_resource_usage.ipynb` to generate the figures below
+Use [`4_plot_resource_usage.ipynb`](4_plot_resource_usage.ipynb) to generate the figures below
 
 #### Figure S2
 
-![figs2](figures/cpu-time.png)
+<img src="figures/cpu-time.png" width=75% height=75%>
 
 #### Figure S3
 
-![figs3](figures/ram-usage.png)
+<img src="figures/ram-usage.png" width=75% height=75%>
