@@ -1,6 +1,15 @@
-# MeSS-figures
 
-Supplemental code for reproducing MeSS paper figures
+# MeSS figures
+This repo contains supplementary code and figures for our paper describing [MeSS](https://github.com/metagenlab/MeSS).
+
+Steps to reproduce the paper's figures are in the following jupyter notebooks:
+
+* [`1_download_and_classify.ipynb`](1_download_and_classify.ipynb) : Download HMP reads and classify them with Kraken2 and Bracken.
+* [`2_simulate_reads.ipynb`](2_simulate_reads.ipynb) : Simulate CAMISIM and MeSS reads from the previously obtained Bracken abundances.
+* [`3_plot_diversities.ipynb`](3_plot_diversities.ipynb): Plot alpha and beta diversities for simulated and real abundances.
+* [`4_plot_resource_usage.ipynb`](4_plot_resource_usage.ipynb): Plot RAM and CPU usage for CAMISIM and MeSS.
+
+
 
 ## Dependencies
 
@@ -30,8 +39,6 @@ jupyter lab
 
 ### Diversities
 
-Use [`3_plot_diversities.ipynb`](3_plot_diversities.ipynb) to generate the figures below
-
 #### Figure 1A
 <p align="center">
 <img src="figures/species-jaccard-NMDS.png" width=55% height=55%>
@@ -48,8 +55,6 @@ Use [`3_plot_diversities.ipynb`](3_plot_diversities.ipynb) to generate the figur
 </p>
 
 ### Benchmark
-
-Use [`4_plot_resource_usage.ipynb`](4_plot_resource_usage.ipynb) to generate the figures below
 
 #### Figure S2
 <p align="center">
