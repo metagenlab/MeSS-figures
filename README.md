@@ -1,5 +1,10 @@
 
 # MeSS figures
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14499940.svg)](https://doi.org/10.5281/zenodo.14499940)
+
+
 This repo contains supplementary code and figures for our paper describing [MeSS](https://github.com/metagenlab/MeSS).
 
 Steps to reproduce the paper's figures are in the following jupyter notebooks:
